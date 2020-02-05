@@ -14,5 +14,22 @@ public class ConvertBinaryNumberInALinkedListToInteger {
             node = node.next;
         }
         return total;
+        
+        
+        /* ALTERNATIVE SOLUTION
+        int total = 0;
+		ListNode node = head;
+        int i = 0;
+        while (node != null) {
+            i++;
+            node = node.next;
+        }
+        node = head;
+        while(node != null) {
+        	total = total + (node.val<<--i);
+            node = node.next;
+        }        
+        return total;
+         */
     }
 }
