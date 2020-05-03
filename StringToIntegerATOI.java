@@ -45,5 +45,36 @@ public class StringToIntegerATOI {
 		return sign * res;
 
 	}
+	
+	// second solution
+    public int myAtoi1(String str) {
+        StringBuilder s = new StringBuilder();
+        str = str.trim();
+        char[] c = str.toCharArray();
+        int result = 0;
+        for(Character n : c) {
+        	
+        	if(Character.isDigit(n) || ((n == '+' || n == '-') && s.length() == 0))
+        		s.append(n);
+        	else
+        		break;
+        }
+        
+        String strng = s.toString();
+
+        
+        if(!strng.isEmpty() && !strng.equals("-") && !strng.equals("+")) {
+        	try {
+        		result = Integer.parseInt(strng);
+			} catch (Exception e) {
+                if (s.charAt(0) == '-'){
+                    result = Integer.MIN_VALUE;
+                } else {
+                    result = Integer.MAX_VALUE;   
+                }
+			}
+        }
+        return result;        
+    }
 
 }
