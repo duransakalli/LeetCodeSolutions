@@ -1,0 +1,20 @@
+
+public class DIStringMatch {
+    public int[] diStringMatch(String S) {
+        int[] result = new int[S.length()+1];
+        
+        int i = 0, j = S.length();
+        
+      for(int k = 0; k < S.length(); k++) {
+    	  if(S.charAt(k) == 'I') {
+    		  result[k] = i;
+    		  i++;
+    	  } else {
+    		  result[k] = j;
+    		  j--;
+    	  }
+      }
+    result[S.length()] = j;
+      return result;
+    }
+}
